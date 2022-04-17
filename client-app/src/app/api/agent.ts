@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from 'axios';
-import { request } from 'http';
 import { Activity } from '../models/activity';
 
 const sleep = (delay: number) => {
@@ -30,8 +29,8 @@ const requests = {
 const Activities = {
     list: () => requests.get<Activity[]>('/activities'),
     details: (id: string) => requests.get<Activity>(`/activities/${id}`),
-    create: (activity: Activity) => requests.post('/activities', activity),
-    edit: (activity: Activity) => requests.put(`/activities/${activity.id}`, activity),
+    create: (activity: Activity) => requests.post<Activity>('/activities', activity),
+    edit: (activity: Activity) => requests.put<Activity>(`/activities/${activity.id}`, activity),
     delete: (id: string) => requests.del(`/activities/${id}`)
 }
 
