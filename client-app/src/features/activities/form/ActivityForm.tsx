@@ -29,7 +29,7 @@ export default observer(function ActivityForm() {
         } else {
             activityStore.setLoadingPage(false);
         }
-    }, [id, loadActivity])
+    }, [id, loadActivity, activityStore])
 
     function handleSubmit() {
         if (!activity.id) {
